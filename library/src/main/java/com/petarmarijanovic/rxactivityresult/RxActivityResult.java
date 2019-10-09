@@ -2,8 +2,10 @@ package com.petarmarijanovic.rxactivityresult;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -41,7 +43,14 @@ public class RxActivityResult {
      * TODO: Write JavaDoc.
      */
     public Single<ActivityResult> start(final Intent intent) {
-        return fragment.start(intent);
+        return fragment.start(intent, null);
+    }
+
+    /**
+     * TODO: Write JavaDoc.
+     */
+    public Single<ActivityResult> start(final Intent intent, @Nullable Bundle options) {
+        return fragment.start(intent, options);
     }
 
     /**
