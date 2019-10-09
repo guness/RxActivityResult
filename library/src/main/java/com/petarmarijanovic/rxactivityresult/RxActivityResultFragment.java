@@ -36,9 +36,16 @@ public class RxActivityResultFragment extends Fragment {
      * TODO: Write JavaDoc.
      */
     public Single<ActivityResult> start(final Intent intent) {
+        return start(intent, null);
+    }
+
+    /**
+     * TODO: Write JavaDoc.
+     */
+    public Single<ActivityResult> start(final Intent intent, final @Nullable Bundle options) {
         int requestCode = RequestCodeGenerator.generate();
 
-        startActivityForResult(intent, requestCode);
+        startActivityForResult(intent, requestCode, options);
 
         return getSubject(requestCode).firstOrError();
     }
